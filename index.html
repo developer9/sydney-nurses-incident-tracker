@@ -44,17 +44,42 @@
     </div>
 
     <script>
-        // Function to calculate days since the incident
-        function calculateDaysSince(date) {
-            const incidentDate = new Date(date);
-            const currentDate = new Date();
-            const timeDiff = currentDate - incidentDate;
-            const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-            return daysDiff;
-        }
+       function calculateDaysSince(dateString, timeZone) {
+    // Parse the input date string
+    const incidentDate = new Date(dateString);
 
-        // Update the day count
-        document.getElementById('dayCount').textContent = calculateDaysSince('2025-02-12');
+    // Get the current date in the specified time zone
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: timeZone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    });
+
+    // Format the incident date in the specified time zone
+    const incidentDateParts = formatter.formatToParts(incidentDate);
+    const incidentDateInTimeZone = new Date(
+        `${incidentDateParts[4].value}-${incidentDateParts[0].value}-${incidentDateParts[2].value}`
+    );
+
+    // Get the current date in the specified time zone
+    const currentDateParts = formatter.formatToParts(new Date());
+    const currentDateInTimeZone = new Date(
+        `${currentDateParts[4].value}-${currentDateParts[0].value}-${currentDateParts[2].value}`
+    );
+
+    // Calculate the difference in time
+    const timeDiff = currentDateInTimeZone - incidentDateInTimeZone;
+
+    // Convert time difference from milliseconds to days
+    const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+    return daysDiff;
+}
+
+// Update the day count
+document.getElementById('dayCount').textContent = calculateDaysSince('2025-02-12', 'Australia/Sydney');
+
 
         // Timeline of Events Data
         const timelineEvents = [
