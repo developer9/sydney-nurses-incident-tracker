@@ -81,8 +81,8 @@
 document.getElementById('dayCount').textContent = calculateDaysSince('2025-02-12', 'Australia/Sydney');
 
 
-        // Timeline of Events Data
-       const timelineEvents = [
+       // Timeline of Events Data
+const timelineEvents = [
     { date: '2025-02-12', event: 'Incident occurs at Bankstown-Lidcombe Hospital.' },
     { date: '2025-02-13', event: 'Video goes viral; public outcry ensues.' },
     { date: '2025-02-14', event: 'Nurses suspended pending investigation.' },
@@ -92,19 +92,20 @@ document.getElementById('dayCount').textContent = calculateDaysSince('2025-02-12
     { date: '2025-02-18', event: 'Nationwide discussions on healthcare ethics.' },
     { date: '2025-02-19', event: 'Ongoing investigation; no further updates.' },
     { date: '2025-02-20', event: 'Police working with Israeli social media influencer Max Veifer to gather additional evidence.' },
-    { date: '2025-02-21', event: 'No new developments since the Australian Islamic Medical Association’s statement on February 20. Investigation continues.' },
-     { date: '2025-02-22', event: 'As of February 22, 2025, there are no new updates or government actions reported today regarding the Sydney nurses video incident.' },      
+    { date: '2025-02-21', event: 'No new developments since the Australian Islamic Medical Association's statement on February 20. Investigation continues.' },
+    { date: '2025-02-22', event: 'As of February 22, 2025, there are no new updates or government actions reported today regarding the Sydney nurses video incident.' },
+    { date: '2025-02-25', event: 'Sarah Abu Lebdeh, 26, arrested and charged with three federal offenses including threatening violence to a group and using a carriage service to threaten to kill.' }
 ];
 
-
-        // Government Actions Data
-        const governmentActions = [
-            { date: '2025-02-14', action: 'Nurses suspended from duties.' },
-            { date: '2025-02-15', action: 'Health Minister orders comprehensive review.' },
-            { date: '2025-02-16', action: 'Police form special task force for investigation.' },
-            { date: '2025-02-17', action: 'Government announces new training programs on cultural sensitivity.' },
-            { date: '2025-02-18', action: 'Legislative discussions on stricter penalties for hate speech in healthcare.' }
-        ];
+// Government Actions Data
+const governmentActions = [
+    { date: '2025-02-14', action: 'Nurses suspended from duties.' },
+    { date: '2025-02-15', action: 'Health Minister orders comprehensive review.' },
+    { date: '2025-02-16', action: 'Police form special task force for investigation.' },
+    { date: '2025-02-17', action: 'Government announces new training programs on cultural sensitivity.' },
+    { date: '2025-02-18', action: 'Legislative discussions on stricter penalties for hate speech in healthcare.' },
+    { date: '2025-02-25', action: 'Police charge Sarah Abu Lebdeh with three federal offenses; released on conditional bail.' }
+];
 
         // Function to render timeline events
         function renderTimeline(events, elementId) {
